@@ -4,13 +4,11 @@ const mongoose = require('mongoose');
 const DB_URL = process.env.DB_URI || require('./config');
 const apiRouter = require('./routes/api');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 
 mongoose.connect(DB_URL, () => {
     console.log(`Connected to ${DB_URL}`);
 });
 
-app.use(cors());
 app.use(express.static('public'));
 
 app.use(bodyParser.json());
