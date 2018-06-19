@@ -1,0 +1,32 @@
+{
+  "name": "northcoders-news-api",
+  "version": "1.0.0",
+  "description": "Northcoders News API Sprint",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV='test' mocha spec --timeout 10000",
+    "dev": "nodemon listen.js",
+    "start": "node listen.js",
+    "seed:dev": "NODE_ENV='development' node ./seed/dev.seed.js",
+    "seed:test": "NODE_ENV='test' node ./seed/seed.js",
+    "seed:production": "NODE_ENV='production' node ./seed/prod.seed.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.4",
+    "express": "^4.14.0",
+    "faker": "^4.1.0",
+    "heroku": "^7.0.37",
+    "lodash": "^4.17.10",
+    "mongoose": "^5.0.14"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "ejs": "^2.6.1",
+    "mocha": "^5.0.5",
+    "nodemon": "^1.17.2",
+    "supertest": "^3.0.0"
+  }
+}
