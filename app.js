@@ -16,7 +16,6 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use('/api', apiRouter);
 
-// error handling
 app.use('/*', (req, res, next) => {
     next({ status: 404, msg: 'Page not found' });
 });

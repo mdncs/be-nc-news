@@ -7,9 +7,6 @@ exports.getArticles = (req, res, next) => {
     .then(articles => {
         let count = Promise.all(articles.map(article => Comments.count({ belongs_to: article._id })));
         return Promise.all([articles, count])
-        // can do
-        // let count = articles.map(article => Comments.count({ belongs_to: article._id }));
-        // return Promise.all([articles, ...count])
     })
     .then(([articles, count]) => {
        const articlesArr = articles.map((article, index) => ({...article, comments: count[index]}))

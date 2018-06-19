@@ -47,21 +47,3 @@ exports.generateRandomCommentData = (articleData, userData) => {
         };
     });
 }
-
-// OVERLY COMPLICATED FUNC THAT WAS SIMPLIFIED ABOVE
-// exports.generateRandomCommentData = (articleDocs, userDocs) => {
-//     const articleIds = makeIdsArray(articleDocs);
-//     const userIds = makeIdsArray(userDocs);
-//     const articleTitles = makeReferenceNameObject(articleDocs, 'title');
-//     const userNames = makeReferenceNameObject(userDocs, 'username');
-
-//     return Array.from({length: random(200)}, () => {
-//         return {
-//             body: faker.lorem.paragraph(),
-//             belongs_to: articleTitles[sample(articleIds)],
-//             created_by: userNames[sample(userIds)],
-//             votes: random(100),
-//             created_at: Date.now()
-//         };
-//     });
-// }

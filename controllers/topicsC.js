@@ -1,4 +1,4 @@
-const { Articles, Topics, Users } = require('../models');
+const { Articles, Topics, Users, Comments } = require('../models');
 const { random } = require('lodash');
 
 exports.getTopics = (req, res, next) => {
@@ -7,11 +7,20 @@ exports.getTopics = (req, res, next) => {
     .catch(next);
 };
 
-// PUT COMMENT COUNT IN HERE
 exports.getArticlesByTopicId = (req, res, next) => {
     const { topic_id } = req.params;
-    return Articles.find({belongs_to: topic_id})
-    .then(articles => !articles.length ? next({status: 404, msg: 'Page not found'}) : res.send({articles}))
+    return Articles.find({ belongs_to: topic_id }).lean()
+    .then(articles => {
+        if (!articles.length) next({status: 404, msg: 'Page not found'});
+        else {
+            let count = Promise.all(articles.map(article => Comments.count({ belongs_to: article._id })));
+            return Promise.all([articles, count]);
+        }
+    })
+    .then(([articles, count]) => {
+        const articlesArr = articles.map((article, index) => ({ ...article, comments: count[index] }))
+        res.send({ articlesArr });
+    })
     .catch(err => {
         err.name === 'CastError' || 'ValidationError'
             ? next({status: 400, msg: 'Bad Request'})
