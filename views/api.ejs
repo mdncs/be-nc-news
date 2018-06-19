@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+        <title>Northcoders News API</title>
+</head>
+
+<body>
+        <h1>Northcoders News - API Endpoints</h1>
+                <div class="list">
+                        <ul>
+                <li><h2><a href="https://be2-nc-news.herokuapp.com/api/topics">Topics</a></h2></li>
+                        <h3>
+                                <div class="routesLi">
+                                        <ul>
+                                                <li><p>GET <span class="route">/api</span>: Serves an HTML page with documentation for all the available endpoints</p></li>
+                                                <li><p>GET <span class="route">/api/topics</span>: Gets all the topics</p></li>
+                                                <li><p>GET <span class="route">/api/topics/:topic_id/articles</span>: Returns all the articles for a certain topic</p></li>
+                                                <li><p>POST <span class="route">/api/topics/:topic_id/articles</span>: Adds a new article to a topic. This route requires a JSON body with title and
+                                                        body key value pairs
+                                                        <br>e.g: {
+                                                        <br> "title": "this is my new article title",
+                                                        <br> "body": "This is my new article content"
+                                                        <br> }
+                                                </li>
+                                        </p>
+                                        </ul>
+                                </div>
+                        </h3>
+                <li><h2><a href="https://be2-nc-news.herokuapp.com/api/articles">Articles</a></h2></li>
+                        <h3>
+                                <div class="routesLi">
+                                        <ul>
+                                                <li><p>GET <span class="route">/api/articles</span>: Returns all the articles</p></li>
+                                                <li><p>GET <span class="route">/api/articles/:article_id</span>: Gets an individual article</p></li>
+                                                <li><p>GET <span class="route">/api/articles/:article_id/comments</span>: Gets all the comments for a individual article</p></li>
+                                                <li><p>POST <span class="route">/api/articles/:article_id/comments</span>: Adds a new comment to an article. This route requires a JSON body with a comment key and value pair
+                                                <br>e.g: {"comment": "This is my new comment"}</li>
+                                        </p>
+                                                <li><p>PUT <span class="route">/api/articles/:article_id</span>: Increments or Decrements the votes of an article by one. This route requires a vote query of 'up' or 'down'
+                                        <br>e.g: /api/articles/:article_id?vote=up
+                                        </p>
+                                        </li>
+                                        </ul>
+                                </div>
+                        </h3>
+                <li><h2>Comments</h2></li>
+                        <h3>
+                                <div class="routesLi">
+                                        <ul>
+                                                <li><p>GET <span class="route">/api/comments</span>: Returns all comments</p></li>
+                                                <li><p>PUT <span class="route">/api/comments/:comment_id</span>: Increments or Decrements the votes of a comment by one. This route requires a vote query of 'up' or 'down'
+                                                <br> e.g: /api/comments/:comment_id?vote=down</p></li>
+                                                <li><p>DELETE <span class="route">/api/comments/:comment_id</span>: Deletes a comment</p></li>
+                                </ul>
+                                </div>
+                        </h3>
+                <li><h2>Users</h2></li>
+                        <h3>
+                                <div class="routesLi">
+                                        <ul>
+                                                <li><p>GET <span class="route">/api/users/</span>: Returns a JSON object with the profile data for all users</p></li>
+                                                <li><p>GET <span class="route">/api/users/:username</span>: Returns a JSON object with the profile data for the specified user.</p></li>
+                                        </h3>
+                                </ul>
+                        </div>
+                        </ul>
+                </div>
+        </body>
+
+</html>
