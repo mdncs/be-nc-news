@@ -2,7 +2,7 @@ const seedDB = require('./seed');
 const mongoose = require('mongoose');
 const { topicData, userData, articleData } = require('./devData');
 const { generateRandomCommentData } = require('../utils');
-const DB_URL = require('../config');
+const { DB_URL } = require('../config');
 
 const commentData = generateRandomCommentData(articleData, userData);
 
