@@ -96,7 +96,7 @@ The data used for the Northcoders News app can be found on mLab here:
 https://mlab.com/databases/be2-nc-news
 
 The API is hosted on Heroku here:
-https://be2-nc-news.herokuapp.com
+https://back-end-nc-news.herokuapp.com/api
 
 For more information on how to deploy and manage your apps on Heroku, their docuemntation is available here:
 https://devcenter.heroku.com/
